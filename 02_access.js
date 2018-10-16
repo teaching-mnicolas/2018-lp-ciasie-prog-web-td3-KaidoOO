@@ -1,8 +1,8 @@
 describe ("Properties access", function() {
-  let warrior;
+  let warrior, Character;
 
   beforeEach(function() {
-    const Character = function() {};
+    Character = function() {};
     Character.prototype.hp = 100;
     Character.prototype.armor = 10;
 
@@ -13,12 +13,15 @@ describe ("Properties access", function() {
 
   it ("object has access to its own property", function() {
     expect(warrior.damage).toBeDefined();
+
     expect(warrior.damage).toEqual(42);
+
   });
 
   it ("object has access to property of its prototype", function() {
     expect(warrior.hp).toBeDefined();
     expect(warrior.hp).toEqual(100);
+
   });
 
   it ("object's property mask prototype's property", function() {
@@ -28,6 +31,7 @@ describe ("Properties access", function() {
 
   it ("property not found is undefined", function() {
     expect(warrior.mp).toBeUndefined();    // defined or undefined
+
   });
 
   it ("Prototype modification is propagated to objects", function() {
